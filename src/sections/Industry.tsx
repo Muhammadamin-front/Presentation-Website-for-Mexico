@@ -13,7 +13,7 @@ export function Industry() {
           <div className="pointer-events-none relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
             <div
               aria-hidden="true"
-              className="absolute top-1/2 left-1/2 h-[70%] w-[min(900px,90%)] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(closest-side,var(--color-paper)_35%,rgba(248,245,239,0.75)_65%,transparent)]"
+              className="absolute top-1/2 left-1/2 h-[70%] w-[min(900px,90%)] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(closest-side,var(--color-paper)_35%,rgba(252,242,222,0.75)_65%,transparent)]"
             />
             <span className="es relative text-[clamp(2.6rem,8.5vw,8rem)] leading-none whitespace-nowrap text-depth">
               Hecho en <span className="text-ink">México</span>
@@ -39,7 +39,7 @@ export function Industry() {
               data-rev
               style={delay(80 * i)}
             >
-              <span className="es text-[1.6rem] leading-none text-feather transition-colors duration-500 group-hover:text-ink">
+              <span className="es text-[1.6rem] leading-none text-terra transition-colors duration-500 group-hover:text-rosa">
                 {e.es}
               </span>
               <div>

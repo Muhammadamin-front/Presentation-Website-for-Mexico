@@ -12,7 +12,7 @@ export function Problems() {
           <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
             <div
               aria-hidden="true"
-              className="absolute top-1/2 left-1/2 h-[60%] w-[min(820px,92%)] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(closest-side,var(--color-paper)_40%,rgba(248,245,239,0.7)_70%,transparent)]"
+              className="absolute top-1/2 left-1/2 h-[60%] w-[min(820px,92%)] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(closest-side,var(--color-paper)_40%,rgba(252,242,222,0.7)_70%,transparent)]"
             />
             <Vertical vn="Retos" className="relative">
               <Words as="h2" className="section-title text-depth" text="Yaqinlikning narxi" />

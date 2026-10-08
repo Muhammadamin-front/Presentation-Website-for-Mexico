@@ -18,7 +18,7 @@ export function Crisis() {
               aria-label="Yo‘qotilgan o‘n yillik"
             >
               <span className="block">Yo‘qotilgan</span>
-              <span className="block text-ink">o‘n yillik</span>
+              <span className="block text-rosa">o‘n yillik</span>
               <span className="block">1982</span>
             </h2>
             <p className="whiteout-caption mx-auto mt-10 max-w-[48ch] text-[clamp(1.05rem,1.4vw,1.3rem)] text-dilute">
@@ -75,7 +75,7 @@ export function Crisis() {
                     className="draw"
                     pathLength={1}
                     d="M286 8 L306 20 L286 32"
-                    stroke="var(--color-ink)"
+                    stroke="var(--color-rosa)"
                     strokeWidth="1.6"
                     fill="none"
                     style={{ transitionDelay: `${i * 220 + 500}ms` }}
@@ -91,7 +91,7 @@ export function Crisis() {
                   />
                 </svg>
                 <div className="mt-6 flex items-baseline gap-4">
-                  <span className="es text-[2.6rem] leading-none text-ink">{s.n}</span>
+                  <span className="es text-[2.6rem] leading-none text-rosa">{s.n}</span>
                   <h3 className="text-[1.45rem] font-light text-depth">{s.title}</h3>
                 </div>
                 <p className="mt-3 leading-relaxed text-dilute">{s.text}</p>

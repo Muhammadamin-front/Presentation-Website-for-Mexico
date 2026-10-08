@@ -22,11 +22,11 @@ function rng(seed: number) {
 
 export const palettes = {
   /** Qorong‘i yashil — tugma foni */
-  ink: { bg: "#11241b", inks: ["#0f4a30", "#146b45", "#1a3a2b", "#b3261e"], clear: "#17301f" },
+  ink: { bg: "#2b1420", inks: ["#8a1c52", "#e6197b", "#f29a0e", "#0e6b47"], clear: "#3a1a2c" },
   /** Och guruch qog‘ozi — «Kelajak» foni */
-  mist: { bg: "#f8f5ef", inks: ["#e6efe3", "#dcebdc", "#eef2e6", "#f1e3c3"], clear: "#f8f5ef" },
+  mist: { bg: "#fcf2de", inks: ["#fbc9dc", "#fcd9a2", "#bfe6e3", "#f9e3a8"], clear: "#fcf2de" },
   /** Rangli marmar chiziq — qorong‘i bo‘lim tepasida */
-  endpaper: { bg: "#f8f5ef", inks: ["#0d5c3d", "#c1272d", "#11241b", "#e08a12"], clear: "#f8f5ef" },
+  endpaper: { bg: "#fcf2de", inks: ["#0e6b47", "#cf2a2a", "#e6197b", "#f29a0e"], clear: "#fcf2de" },
 } as const;
 export type PaletteName = keyof typeof palettes;
 

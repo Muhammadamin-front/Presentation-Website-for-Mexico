@@ -6,7 +6,7 @@ import { delay } from "../lib/utils";
 
 export function Numbers() {
   return (
-    <section id="raqamlar" aria-label="Raqamlarda Meksika" className="bg-wash">
+    <section id="raqamlar" aria-label="Raqamlarda Meksika" className="tiles bg-wash [--tiles-o:0.2]">
       <div data-stop className="slide wrap-page py-20">
         <div className="grid items-end gap-8 lg:grid-cols-[1fr_1fr]">
           <Words as="h2" className="section-title text-depth" text="Raqamlarda Meksika" />

@@ -53,10 +53,10 @@ export function History() {
                       <feGaussianBlur stdDeviation="0.6" />
                     </filter>
                     <radialGradient id="now-drop">
-                      <stop offset="0" stopColor="var(--color-ink)" stopOpacity="0.26" />
-                      <stop offset="0.55" stopColor="var(--color-ink)" stopOpacity="0.16" />
-                      <stop offset="0.85" stopColor="var(--color-ink)" stopOpacity="0.07" />
-                      <stop offset="1" stopColor="var(--color-ink)" stopOpacity="0" />
+                      <stop offset="0" stopColor="var(--color-rosa)" stopOpacity="0.26" />
+                      <stop offset="0.55" stopColor="var(--color-rosa)" stopOpacity="0.16" />
+                      <stop offset="0.85" stopColor="var(--color-rosa)" stopOpacity="0.07" />
+                      <stop offset="1" stopColor="var(--color-rosa)" stopOpacity="0" />
                     </radialGradient>
                   </defs>
                   <g filter="url(#ink-edge)">
@@ -78,7 +78,7 @@ export function History() {
                                 r={age === 0 && j === 0 ? 104 : 96 * (k || 1)}
                                 fill={age === 0 && j === 0 ? "url(#now-drop)" : "none"}
                                 stroke={
-                                  age === 0 && j === 0 ? "none" : age === 0 ? "var(--color-ink)" : "var(--color-dilute)"
+                                  age === 0 && j === 0 ? "none" : age === 0 ? "var(--color-rosa)" : "var(--color-dilute)"
                                 }
                                 strokeOpacity={(age === 0 ? 0.7 : 0.55 - fade * 0.35) * (j === 0 ? 1 : 0.5)}
                                 strokeWidth={j === 0 ? 1.4 : 0.8}
@@ -91,11 +91,11 @@ export function History() {
                   </g>
                 </svg>
                 <p
-                  className="num relative text-[clamp(6rem,14vw,12.5rem)] leading-none font-[200] tracking-[-0.045em]"
+                  className="relative font-display text-[clamp(6rem,14vw,12.5rem)] leading-none font-bold tracking-[-0.04em] [font-variation-settings:'opsz'_144]"
                   aria-live="polite"
                 >
-                  <span className="text-dilute">{year.slice(0, 2)}</span>
-                  <span className="text-depth">{year.slice(2)}</span>
+                  <span className="text-seal">{year.slice(0, 2)}</span>
+                  <span className="text-rosa">{year.slice(2)}</span>
                 </p>
               </div>
               <ol className="flex flex-col">
@@ -108,7 +108,7 @@ export function History() {
                     )}
                   >
                     {i === active && (
-                      <span aria-hidden="true" className="absolute top-[1.35rem] left-0 size-1.5 rounded-full bg-ink" />
+                      <span aria-hidden="true" className="absolute top-[1.3rem] left-0 size-2 rotate-45 bg-rosa" />
                     )}
                     <div className="flex items-baseline gap-4">
                       <span className="tnum w-12 shrink-0 text-sm text-dilute">{t.year}</span>
@@ -129,7 +129,7 @@ export function History() {
               </ol>
             </div>
             <div className="h-[2px] w-full bg-mist" aria-hidden="true">
-              <div className="h-full bg-ink" style={{ width: "calc(var(--p) * 100%)" }} />
+              <div className="serape-h h-full" style={{ width: "calc(var(--p) * 100%)" }} />
             </div>
           </div>
         </div>

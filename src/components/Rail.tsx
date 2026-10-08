@@ -32,6 +32,21 @@ const icons: Record<SectionId, LucideIcon> = {
   xulosa: Flag,
 };
 
+/** Har bo‘limning o‘z rangi — serape chiziqlari kabi */
+const tones: Record<SectionId, string> = {
+  kirish: "bg-rosa",
+  meksika: "bg-ink",
+  raqamlar: "bg-seal",
+  tarix: "bg-turq",
+  inqiroz: "bg-rojo",
+  sanoat: "bg-violet",
+  nearshoring: "bg-turq",
+  muammolar: "bg-terra",
+  kelajak: "bg-rosa",
+  taqqoslash: "bg-ink",
+  xulosa: "bg-seal",
+};
+
 function useActiveSection() {
   const [active, setActive] = useState(0);
   const [progress, setProgress] = useState(0);
@@ -59,17 +74,18 @@ export function Rail() {
   const { active, progress } = useActiveSection();
   return (
     <>
-      <aside className="fixed inset-y-0 left-0 z-40 hidden w-[var(--rail)] flex-col border-r border-mist bg-paper lg:flex">
+      <aside className="fixed inset-y-0 left-0 z-40 hidden w-[var(--rail)] flex-col bg-paper lg:flex">
+        <div aria-hidden="true" className="serape-v absolute inset-y-0 right-0" />
         <a
           href="#kirish"
           onClick={(e) => (e.preventDefault(), scrollToId("kirish"))}
           className="flex flex-col items-center gap-2.5 px-6 pt-6 pb-5"
         >
           <Emblem className="size-14" />
-          <span className="label text-depth">México</span>
+          <span className="label text-rosa">México</span>
           <span className="es -mt-2 text-base text-dilute">Economía de México</span>
         </a>
-        <nav aria-label="Bo‘limlar" className="mx-5 flex-1 overflow-y-auto border-t border-mist pt-4">
+        <nav aria-label="Bo‘limlar" className="mx-5 mr-6 flex-1 overflow-y-auto border-t-2 border-mist pt-4">
           <ul className="flex flex-col gap-0.5">
             {sections.map((s, i) => {
               const Icon = icons[s.id];
@@ -90,8 +106,8 @@ export function Rail() {
                   >
                     <span
                       className={cn(
-                        "grid size-7 place-items-center rounded-full transition-colors duration-500",
-                        on ? "bg-ink text-paper" : "text-dilute group-hover:text-depth",
+                        "grid size-7 place-items-center rounded-full transition-[background-color,transform] duration-500 ease-[var(--ease-pop)]",
+                        on ? cn(tones[s.id], "scale-110 text-paper") : "text-dilute group-hover:text-depth",
                       )}
                     >
                       <Icon className="size-[15px]" strokeWidth={1.6} />
@@ -103,15 +119,15 @@ export function Rail() {
             })}
           </ul>
         </nav>
-        <div className="mx-5 border-t border-mist py-4">
+        <div className="mx-5 mr-6 border-t-2 border-mist py-4">
           <div className="flex items-baseline justify-between">
             <span className="label text-dilute">Bo‘lim</span>
             <span className="tnum text-sm text-depth">
               {pad(active + 1)} <span className="text-feather">/ {pad(sections.length)}</span>
             </span>
           </div>
-          <div className="mt-3 h-px w-full bg-mist">
-            <div className="h-px bg-ink transition-[width] duration-300" style={{ width: `${progress * 100}%` }} />
+          <div className="mt-3 h-[3px] w-full bg-mist">
+            <div className="serape-h h-[3px] transition-[width] duration-300" style={{ width: `${progress * 100}%` }} />
           </div>
           {author.name && <p className="mt-4 text-sm text-depth">{author.name}</p>}
           {author.group && <p className="text-xs text-dilute">{author.group}</p>}
@@ -122,13 +138,14 @@ export function Rail() {
         </div>
       </aside>
 
-      <header className="fixed inset-x-0 top-0 z-40 flex h-12 items-center gap-3 border-b border-mist bg-paper px-4 lg:hidden">
+      <header className="fixed inset-x-0 top-0 z-40 flex h-12 items-center gap-3 bg-paper px-4 lg:hidden">
         <Emblem className="size-7" seal={false} />
         <span className="label text-depth">{sections[active].label}</span>
         <span className="tnum ml-auto text-xs text-dilute">
           {pad(active + 1)} / {pad(sections.length)}
         </span>
-        <div className="absolute inset-x-0 bottom-0 h-px bg-ink" style={{ width: `${progress * 100}%` }} />
+        <div aria-hidden="true" className="serape-h absolute inset-x-0 bottom-0 h-[3px] opacity-30" />
+        <div className="serape-h absolute bottom-0 left-0 h-[3px] overflow-hidden" style={{ width: `${progress * 100}%` }} />
       </header>
     </>
   );

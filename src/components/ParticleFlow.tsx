@@ -4,7 +4,7 @@ import { cn } from "../lib/utils";
 /* Oqim maydoni bo‘ylab suzuvchi zarrachalar */
 const DENSITY = { sparse: 600, medium: 1200, dense: 2000 } as const;
 const THEMES = {
-  agave: { hueStart: 146, hueRange: 26, saturation: 52, lightness: 28, bg: "248, 245, 239", trail: 0.045, size: 0.9 },
+  agave: { hueStart: 322, hueRange: 200, saturation: 78, lightness: 46, bg: "252, 242, 222", trail: 0.045, size: 1.1 },
   ember: { hueStart: 0, hueRange: 55, saturation: 95, lightness: 58, bg: "20, 10, 7", trail: 0.07, size: 1.3 },
 } as const;
 

@@ -33,7 +33,7 @@ export function Nearshoring() {
       </div>
 
       <div data-stop>
-        <SonarGrid color="#bcae9c" baseOpacity={0.16} spacing={28} pingEvery={2.6} ringWidth={110} className="slide py-20">
+        <SonarGrid color="#f4a8c8" baseOpacity={0.2} spacing={28} pingEvery={2.6} ringWidth={110} className="slide py-20">
           <div className="wrap-page">
             <Words
               as="h2"
@@ -75,7 +75,7 @@ export function Nearshoring() {
               className="draw"
               pathLength={1}
               d="M0 1 H100"
-              stroke="#5b6f63"
+              stroke="#9a5f7c"
               strokeWidth="1"
               vectorEffect="non-scaling-stroke"
               fill="none"
@@ -116,7 +116,7 @@ export function Nearshoring() {
                       className="draw"
                       pathLength={1}
                       d="M0 6 H96"
-                      stroke="#5b6f63"
+                      stroke="#9a5f7c"
                       strokeWidth="1.2"
                       vectorEffect="non-scaling-stroke"
                       fill="none"
@@ -126,7 +126,7 @@ export function Nearshoring() {
                       className="draw"
                       pathLength={1}
                       d="M92 1 L100 6 L92 11"
-                      stroke="#e08a12"
+                      stroke="#f29a0e"
                       strokeWidth="1.2"
                       vectorEffect="non-scaling-stroke"
                       fill="none"
@@ -134,7 +134,7 @@ export function Nearshoring() {
                     />
                   </svg>
                 )}
-                <span className="grid size-11 place-items-center rounded-full border border-feather/60">
+                <span className="grid size-11 place-items-center rounded-full border border-seal/70">
                   <span className="size-3 rounded-full bg-seal" style={{ opacity: 0.35 + i * 0.16 }} />
                 </span>
                 <p className="mt-6 text-[clamp(1.3rem,15cqw,2.4rem)] leading-none font-light text-paper">

@@ -5,7 +5,7 @@ import { cn } from "../lib/utils";
    suv yuzasiga bo‘yoq tomchilari tushadi, sichqoncha bilan oqim hosil bo‘ladi.
    Bo‘yoq «yutilish» (absorbance) sifatida saqlanadi: rang = qog‘oz · e^(−a). */
 
-const PAPER: [number, number, number] = [248 / 255, 245 / 255, 239 / 255];
+const PAPER: [number, number, number] = [252 / 255, 242 / 255, 222 / 255];
 
 function absorb(hex: string, k = 1): [number, number, number] {
   const n = parseInt(hex.slice(1), 16);
@@ -14,12 +14,13 @@ function absorb(hex: string, k = 1): [number, number, number] {
     .map((c, i) => -Math.log(Math.max(c, 0.01) / PAPER[i]) * k) as [number, number, number];
 }
 
-const LACQUER = absorb("#0d5c3d"); // agave-yashil
-const RED = absorb("#c1272d", 0.85); // bayroq qizili
-const DARK = absorb("#11241b", 0.9); // qora-yashil
-const GOLD = absorb("#e08a12", 0.75); // marigold
+const AGAVE = absorb("#0e6b47", 0.95); // agave-yashil
+const ROSA = absorb("#e6197b", 0.9); // rosa mexicano
+const GOLD = absorb("#f29a0e", 0.85); // cempasúchil
+const TURQ = absorb("#12878f", 0.9); // talavera feruzasi
+const RED = absorb("#cf2a2a", 0.85); // cochineal qizili
 const CLEAR: [number, number, number] = [0, 0, 0];
-const PIGMENTS = [LACQUER, RED, DARK, GOLD];
+const PIGMENTS = [ROSA, GOLD, AGAVE, TURQ, RED, ROSA, GOLD];
 
 const CFG = {
   simRes: 128,
@@ -288,7 +289,7 @@ function rings(x: number, y: number, count: number, area: number, at: number, ga
       x,
       y,
       area: area * (pigmented ? 1 : 0.75) * rand(0.7, 1.3),
-      pigment: last ? LACQUER : pigmented ? PIGMENTS[Math.floor(Math.random() * PIGMENTS.length)] : CLEAR,
+      pigment: last ? ROSA : pigmented ? PIGMENTS[Math.floor(Math.random() * PIGMENTS.length)] : CLEAR,
       frames: 9,
       done: 0,
     });
@@ -702,7 +703,7 @@ function StaticRings() {
           cx="690"
           cy="320"
           r={r}
-          fill={i % 2 === 0 ? (i === radii.length - 1 ? "#0d5c3d" : "#b9d3c3") : "#f8f5ef"}
+          fill={i % 2 === 0 ? (i === radii.length - 1 ? "#e6197b" : ["#f9c3da", "#fbd9a0", "#bfe3e1"][(i / 2) % 3]) : "#fcf2de"}
           opacity={0.25 + i * 0.05}
         />
       ))}

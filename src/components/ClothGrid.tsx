@@ -1,10 +1,12 @@
 import { useEffect, useRef, type ReactNode } from "react";
 import { cn } from "../lib/utils";
 
-const BG = "#f8f5ef";
-const LINE = "17, 36, 27";
-const HOT = "#0d5c3d";
+const BG = "#fcf2de";
+const LINE = "43, 20, 32";
+const HOT = "#e6197b";
 const SPACING = 42;
+/** Serape iplari: rosa, marigold, agave, feruza, qizil, binafsha — 3 ustundan bir tasma */
+const THREADS = ["230, 25, 123", "242, 154, 14", "14, 107, 71", "18, 135, 143", "207, 42, 42", "109, 42, 123"];
 
 /** Verlet fizikasidagi 3D mato (serape) to‘ri: sichqonchaga qarab bukiladi */
 export function ClothGrid({ className, children }: { className?: string; children?: ReactNode }) {
@@ -31,7 +33,7 @@ export function ClothGrid({ className, children }: { className?: string; childre
     let visible = false;
     const mouse = { x: -1e3, y: -1e3, tax: 0.2, tay: -0.3, ax: 0.2, ay: -0.3, radius: 180 };
     let pts: Pt[] = [];
-    let links: { a: Pt; b: Pt; len: number }[] = [];
+    let links: { a: Pt; b: Pt; len: number; rgb: string | null }[] = [];
 
     const build = () => {
       pts = [];
@@ -57,8 +59,9 @@ export function ClothGrid({ className, children }: { className?: string; childre
       }
       for (let r = 0; r < rows; r++)
         for (let c = 0; c < cols; c++) {
-          if (c < cols - 1) links.push({ a: grid[r][c], b: grid[r][c + 1], len: SPACING });
-          if (r < rows - 1) links.push({ a: grid[r][c], b: grid[r + 1][c], len: SPACING });
+          if (c < cols - 1) links.push({ a: grid[r][c], b: grid[r][c + 1], len: SPACING, rgb: null });
+          if (r < rows - 1)
+            links.push({ a: grid[r][c], b: grid[r + 1][c], len: SPACING, rgb: THREADS[Math.floor(c / 3) % THREADS.length] });
         }
     };
     const fit = () => {
@@ -155,8 +158,9 @@ export function ClothGrid({ className, children }: { className?: string; childre
         const my = (l.a.py + l.b.py) / 2;
         const near = Math.hypot(mouse.x - mx, mouse.y - my) < mouse.radius;
         const s = (l.a.ps + l.b.ps) / 2;
-        ctx.strokeStyle = near ? HOT : `rgba(${LINE}, ${Math.min(1, Math.max(0.1, 0.32 * s))})`;
-        ctx.lineWidth = near ? 1.6 * s : 0.7 * s;
+        const a = Math.min(1, Math.max(0.1, 0.32 * s));
+        ctx.strokeStyle = near ? HOT : l.rgb ? `rgba(${l.rgb}, ${Math.min(1, a * 1.9)})` : `rgba(${LINE}, ${a * 0.7})`;
+        ctx.lineWidth = near ? 1.8 * s : (l.rgb ? 1.3 : 0.7) * s;
         ctx.beginPath();
         ctx.moveTo(l.a.px, l.a.py);
         ctx.lineTo(l.b.px, l.b.py);

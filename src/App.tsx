@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Greca } from "./components/Greca";
 import { KeyboardHelp } from "./components/KeyboardHelp";
 import { Rail } from "./components/Rail";
 import { initScroll } from "./lib/scroll";
@@ -15,6 +16,15 @@ import { Numbers } from "./sections/Numbers";
 import { Problems } from "./sections/Problems";
 
 /** [data-rev] va [data-words] elementlariga ko‘rinishga kirganda .is-in qo‘shadi */
+/** Bo‘limlar orasidagi greca tasmasi */
+function Band({ tone, bg = "bg-paper" }: { tone: string; bg?: string }) {
+  return (
+    <div className={`${bg} py-3`}>
+      <Greca className={tone} />
+    </div>
+  );
+}
+
 function useReveal() {
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -49,13 +59,17 @@ export default function App() {
       <main className="pt-12 lg:pt-0 lg:pl-[var(--rail)]">
         <Intro />
         <Country />
+        <Band tone="text-rosa" />
         <Numbers />
+        <Band tone="text-turq" />
         <History />
         <Crisis />
         <Industry />
         <Nearshoring />
         <Problems />
+        <Band tone="text-seal" />
         <Future />
+        <Band tone="text-ink" />
         <Compare />
         <Closing />
       </main>

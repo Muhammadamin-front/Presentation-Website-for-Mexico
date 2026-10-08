@@ -2,6 +2,8 @@ import { useState } from "react";
 import { ArrowDown } from "lucide-react";
 import { author, heroStats } from "../data";
 import { Emblem } from "../components/Emblem";
+import { PapelPicado } from "../components/PapelPicado";
+import { Petals } from "../components/Petals";
 import { InkBasin } from "../components/InkBasin";
 import { useMarble } from "../components/marbling";
 import { scrollToId } from "../lib/scroll";
@@ -15,26 +17,28 @@ export function Intro() {
       <InkBasin onInkDrop={setDrops} className="h-full w-full">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 left-0 w-full bg-[linear-gradient(90deg,var(--color-paper)_0%,var(--color-paper)_30%,rgba(248,245,239,0.85)_44%,rgba(248,245,239,0)_60%)] max-md:bg-[linear-gradient(180deg,var(--color-paper)_0%,rgba(248,245,239,0.9)_60%,rgba(248,245,239,0.2)_100%)]"
+          className="pointer-events-none absolute inset-y-0 left-0 w-full bg-[linear-gradient(90deg,var(--color-paper)_0%,var(--color-paper)_30%,rgba(252,242,222,0.85)_44%,rgba(252,242,222,0)_60%)] max-md:bg-[linear-gradient(180deg,var(--color-paper)_0%,rgba(252,242,222,0.9)_60%,rgba(252,242,222,0.2)_100%)]"
         />
-        <div className="pointer-events-none relative flex h-full flex-col px-[clamp(1.25rem,5vw,5rem)] pt-20 pb-8 lg:pt-12">
+        <PapelPicado className="pointer-events-none absolute inset-x-0 top-0 z-10 -mt-1" />
+        <Petals count={20} seed={11} />
+        <div className="pointer-events-none relative z-10 flex h-full flex-col px-[clamp(1.25rem,5vw,5rem)] pt-20 pb-8 lg:pt-12">
           <div className="my-auto flex items-stretch gap-[clamp(1.25rem,3vw,3rem)]">
             <div className="hidden flex-col items-center gap-4 sm:flex">
-              <span className="es text-[clamp(1.4rem,2vw,2rem)] leading-none tracking-[0.22em] whitespace-nowrap text-ink [writing-mode:vertical-rl]">
+              <span className="es text-[clamp(1.4rem,2vw,2rem)] leading-none tracking-[0.22em] whitespace-nowrap text-rosa [writing-mode:vertical-rl]">
                 Economía de México
               </span>
-              <span className="w-px flex-1 bg-feather" />
+              <span className="w-[3px] flex-1 rounded-full bg-seal" />
               <Emblem className="size-9" />
             </div>
             <div className="max-w-[42rem]">
               <h1
-                className="text-[clamp(3.2rem,6.6vw,6rem)] leading-[0.98] font-[250] tracking-[-0.03em] text-depth"
+                className="text-[clamp(3.2rem,6.6vw,6rem)] leading-[0.98] tracking-[-0.025em] text-depth"
                 data-words=""
               >
                 <span className="w" style={wordIndex(0)}>
                   Meksika
                 </span>{" "}
-                <span className="w" style={wordIndex(1)}>
+                <span className="w text-rosa" style={wordIndex(1)}>
                   iqtisodiyoti
                 </span>
               </h1>
@@ -50,7 +54,7 @@ export function Intro() {
                 <button
                   type="button"
                   onClick={() => scrollToId("meksika")}
-                  className="group inline-flex h-14 items-center gap-4 rounded-full bg-depth bg-[length:180%_auto] bg-[position:0%_50%] pr-3 pl-7 text-paper transition-[background-position] duration-[1600ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-[position:100%_50%] active:scale-[0.98]"
+                  className="group inline-flex h-14 items-center gap-4 rounded-full bg-depth bg-[length:180%_auto] shadow-[0_10px_28px_-10px_rgba(230,25,123,0.6)] bg-[position:0%_50%] pr-3 pl-7 text-paper transition-[background-position] duration-[1600ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-[position:100%_50%] active:scale-[0.98]"
                   style={marble ? { backgroundImage: `url(${marble})` } : undefined}
                 >
                   <span className="label !tracking-[0.16em]">Taqdimotni boshlash</span>
@@ -61,7 +65,7 @@ export function Intro() {
                 <a
                   href="#taqqoslash"
                   onClick={(e) => (e.preventDefault(), scrollToId("taqqoslash"))}
-                  className="inline-flex h-14 items-center rounded-full border border-feather px-7 text-depth transition-colors duration-300 hover:border-depth hover:bg-paper"
+                  className="inline-flex h-14 items-center rounded-full border-2 border-depth/80 px-7 text-depth transition-[background-color,color,transform] duration-300 hover:-translate-y-0.5 hover:bg-seal hover:border-seal active:scale-[0.98]"
                 >
                   <span className="label !tracking-[0.16em]">O‘zbekiston bilan</span>
                 </a>
@@ -77,9 +81,9 @@ export function Intro() {
         </div>
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 hidden w-[19%] bg-[linear-gradient(270deg,var(--color-paper)_0%,var(--color-paper)_45%,rgba(248,245,239,0)_100%)] xl:block"
+          className="pointer-events-none absolute inset-y-0 right-0 hidden w-[19%] bg-[linear-gradient(270deg,var(--color-paper)_0%,var(--color-paper)_45%,rgba(252,242,222,0)_100%)] xl:block"
         />
-        <dl className="pointer-events-none absolute top-1/2 right-[clamp(1rem,2.5vw,2.5rem)] hidden -translate-y-1/2 flex-col gap-5 border-l border-mist pl-5 xl:flex">
+        <dl className="pointer-events-none absolute top-1/2 right-[clamp(1rem,2.5vw,2.5rem)] hidden -translate-y-1/2 flex-col gap-5 border-l-[3px] border-rosa pl-5 xl:flex">
           {heroStats.map((s) => (
             <div key={s.label}>
               <dt className="label text-dilute">{s.label}</dt>

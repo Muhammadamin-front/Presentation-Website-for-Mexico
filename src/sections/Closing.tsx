@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { MeshGradient, PulsingBorder } from "@paper-design/shaders-react";
 import { author, conclusions, sources } from "../data";
 import { Emblem } from "../components/Emblem";
+import { Greca } from "../components/Greca";
+import { PapelPicado } from "../components/PapelPicado";
+import { Petals } from "../components/Petals";
 import { FlipText } from "../components/FlipText";
 import { SplashButton } from "../components/SplashButton";
 import { Words } from "../components/text";
@@ -26,7 +29,7 @@ function Seal() {
   return (
     <div className="relative grid size-40 place-items-center">
       <PulsingBorder
-        colors={["#e08a12", "#f0c36a", "#0d5c3d", "#f8f5ef"]}
+        colors={["#e6197b", "#f29a0e", "#12878f", "#fcf2de"]}
         colorBack="#00000000"
         speed={1.2}
         roundness={1}
@@ -50,7 +53,7 @@ function Seal() {
         <defs>
           <path id="seal-ring" d="M 50,50 m -40,0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" />
         </defs>
-        <text className="fill-feather text-[7px] tracking-[0.24em] uppercase">
+        <text className="fill-seal text-[7px] tracking-[0.24em] uppercase">
           <textPath href="#seal-ring">Meksika iqtisodiyoti · Economía de México · 2026 · Rahmat ·</textPath>
         </text>
       </svg>
@@ -65,18 +68,19 @@ export function Closing() {
       <section id="xulosa" aria-label="Xulosa" className="relative isolate overflow-hidden bg-depth text-paper">
         <MeshGradient
           className="absolute inset-0 -z-10 h-full w-full"
-          colors={["#11241b", "#0d4a31", "#08140e", "#0d5c3d"]}
+          colors={["#2b1420", "#7a1c4b", "#0b4d34", "#8f3a14"]}
           distortion={0.85}
           swirl={0.25}
           speed={0.22}
         />
-        <div data-stop className="slide wrap-page py-20">
+        <Greca className="absolute inset-x-0 top-0 text-seal" />
+        <div data-stop className="slide wrap-page py-20 pt-28">
           <Words as="h2" className="section-title text-paper" text="Xulosa" />
           <ul className="mt-14 grid gap-10 md:grid-cols-3">
             {conclusions.map((c, i) => (
               <li
                 key={i}
-                className="border-t border-white/20 pt-6 text-[clamp(1.1rem,1.5vw,1.35rem)] leading-relaxed font-light text-mist"
+                className="border-t-[3px] border-seal pt-6 text-[clamp(1.1rem,1.5vw,1.35rem)] leading-relaxed text-mist"
                 data-rev
                 style={delay(120 * i)}
               >
@@ -88,22 +92,24 @@ export function Closing() {
         <div
           ref={replay.ref}
           data-stop
-          className="flex min-h-svh flex-col items-center justify-center px-6 pb-24 text-center"
+          className="relative flex min-h-svh flex-col items-center justify-center px-6 pt-36 pb-24 text-center"
         >
+          <PapelPicado className="absolute inset-x-0 top-0" />
+          <Petals count={26} seed={5} />
           <Seal />
-          <h2 className="mt-10 text-[clamp(4.5rem,12vw,10.5rem)] leading-none font-extralight tracking-[-0.04em] text-paper">
+          <h2 className="relative z-10 mt-10 text-[clamp(4.5rem,12vw,10.5rem)] leading-none font-bold tracking-[-0.03em] text-paper [text-shadow:0_6px_0_rgba(230,25,123,0.85)]">
             {replay.count > 0 ? <FlipText key={replay.count}>Rahmat!</FlipText> : "Rahmat!"}
           </h2>
-          <p className="es mt-5 text-[clamp(1.4rem,2vw,1.9rem)] tracking-[0.08em] text-seal">¡Muchas gracias!</p>
-          <p className="lede mt-4 !text-mist">E’tiboringiz uchun rahmat. Savollaringiz bo‘lsa — marhamat.</p>
+          <p className="es relative z-10 mt-6 text-[clamp(1.6rem,2.4vw,2.2rem)] tracking-[0.08em] text-seal">¡Muchas gracias!</p>
+          <p className="lede relative z-10 mt-4 !text-mist">E’tiboringiz uchun rahmat. Savollaringiz bo‘lsa — marhamat.</p>
           {author.name && (
-            <p className="mt-2 text-mist">
+            <p className="relative z-10 mt-2 text-mist">
               {author.name}
               {author.group && <span className="text-feather"> · {author.group}</span>}
             </p>
           )}
           <SplashButton
-            className="splash-btn--light mt-12"
+            className="splash-btn--light relative z-10 mt-12"
             label="Boshiga qaytish"
             hoverLabel="Yana bir bor"
             onClick={() => scrollToY(0)}
@@ -111,10 +117,11 @@ export function Closing() {
         </div>
       </section>
 
-      <section id="manbalar" data-stop aria-label="Manbalar" className="slide bg-paper py-20">
+      <section id="manbalar" data-stop aria-label="Manbalar" className="slide bg-paper pb-20">
+        <div aria-hidden="true" className="serape-h mb-20" />
         <div className="wrap-page grid gap-10 lg:grid-cols-[0.6fr_1.4fr]">
           <div>
-            <h2 className="text-[1.8rem] font-light text-depth">Manbalar</h2>
+            <h2 className="text-[1.8rem] text-depth">Manbalar</h2>
             <p className="note mt-3 max-w-[32ch]">
               Barcha raqamlar ochiq manbalardan olingan. «~» — yaxlitlangan yoki taxminiy qiymat.
             </p>

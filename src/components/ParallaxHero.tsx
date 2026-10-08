@@ -39,11 +39,15 @@ export function ParallaxHero({ title, image, alt }: { title: ReactNode; image: s
           height={1600}
           loading="eager"
           decoding="async"
-          className="absolute inset-0 h-full w-full object-cover object-[50%_55%] saturate-[0.85] will-change-transform"
+          className="absolute inset-0 h-full w-full object-cover object-[50%_55%] saturate-[1.18] contrast-[1.04] will-change-transform"
         />
         <div
           aria-hidden="true"
-          className="absolute inset-x-0 top-0 h-[55%] bg-[radial-gradient(ellipse_55%_70%_at_50%_0%,rgba(248,245,239,0.82)_0%,rgba(248,245,239,0.45)_45%,rgba(248,245,239,0)_100%)]"
+          className="absolute inset-0 bg-[linear-gradient(180deg,rgba(230,25,123,0.16)_0%,rgba(242,154,14,0.12)_55%,rgba(14,107,71,0.14)_100%)] mix-blend-multiply"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 top-0 h-[55%] bg-[radial-gradient(ellipse_55%_70%_at_50%_0%,rgba(252,242,222,0.82)_0%,rgba(252,242,222,0.45)_45%,rgba(252,242,222,0)_100%)]"
         />
         <div
           data-parallax-layer="3"
@@ -54,7 +58,7 @@ export function ParallaxHero({ title, image, alt }: { title: ReactNode; image: s
         <div
           data-parallax-layer="4"
           aria-hidden="true"
-          className="absolute inset-x-0 -bottom-[14%] h-[48%] bg-[linear-gradient(180deg,rgba(248,245,239,0)_0%,rgba(248,245,239,0.8)_38%,var(--color-paper)_62%)] will-change-transform"
+          className="absolute inset-x-0 -bottom-[14%] h-[48%] bg-[linear-gradient(180deg,rgba(252,242,222,0)_0%,rgba(252,242,222,0.8)_38%,var(--color-paper)_62%)] will-change-transform"
         />
       </div>
     </div>
