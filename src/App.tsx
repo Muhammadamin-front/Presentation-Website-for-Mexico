@@ -6,6 +6,7 @@ import { initScroll } from "./lib/scroll";
 import { Closing } from "./sections/Closing";
 import { Compare } from "./sections/Compare";
 import { Country } from "./sections/Country";
+import { Cover } from "./sections/Cover";
 import { Crisis } from "./sections/Crisis";
 import { Nearshoring } from "./sections/Nearshoring";
 import { Future } from "./sections/Future";
@@ -57,6 +58,7 @@ export default function App() {
       </a>
       <Rail />
       <main className="pt-12 lg:pt-0 lg:pl-[var(--rail)]">
+        <Cover />
         <Intro />
         <Country />
         <Band tone="text-rosa" />

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import {
+  BookOpen,
   ChartColumn,
   Cpu,
   Droplets,
@@ -19,6 +20,7 @@ import { cn } from "../lib/utils";
 import { Emblem } from "./Emblem";
 
 const icons: Record<SectionId, LucideIcon> = {
+  muqova: BookOpen,
   kirish: Droplets,
   meksika: Mountain,
   raqamlar: ChartColumn,
@@ -34,6 +36,7 @@ const icons: Record<SectionId, LucideIcon> = {
 
 /** Har bo‘limning o‘z rangi — serape chiziqlari kabi */
 const tones: Record<SectionId, string> = {
+  muqova: "bg-seal",
   kirish: "bg-rosa",
   meksika: "bg-ink",
   raqamlar: "bg-seal",
@@ -77,8 +80,8 @@ export function Rail() {
       <aside className="fixed inset-y-0 left-0 z-40 hidden w-[var(--rail)] flex-col bg-paper lg:flex">
         <div aria-hidden="true" className="serape-v absolute inset-y-0 right-0" />
         <a
-          href="#kirish"
-          onClick={(e) => (e.preventDefault(), scrollToId("kirish"))}
+          href="#muqova"
+          onClick={(e) => (e.preventDefault(), scrollToId("muqova"))}
           className="flex flex-col items-center gap-2.5 px-6 pt-6 pb-5"
         >
           <Emblem className="size-14" />

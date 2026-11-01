@@ -2,12 +2,16 @@
    «~» — yaxlitlangan yoki taxminiy qiymat. */
 
 export const author = {
-  name: "", // masalan: "Ism Familiya"
-  group: "", // masalan: "IQT-21"
-  course: "Iqtisodiyot fanidan taqdimot",
+  name: "Nabiyev Sanjar",
+  group: "85-25 I guruh",
+  university: "Farg‘ona davlat texnika universiteti",
+  faculty: "Ishlab chiqarishda boshqaruv fakulteti",
+  subject: "Iqtisodiyotda siyosat",
+  course: "«Iqtisodiyotda siyosat» fanidan 1-mustaqil ish",
 };
 
 export const sections = [
+  { id: "muqova", label: "Muqova" },
   { id: "kirish", label: "Kirish" },
   { id: "meksika", label: "Meksika" },
   { id: "raqamlar", label: "Raqamlarda" },

@@ -700,3 +700,48 @@ html.lenis body {
     transform: none;
   }
 }
+
+/* ── Muqova: yozuv kursori va sekin aylanuvchi gul ─────────────── */
+.cover-caret {
+  display: inline-block;
+  width: 0.07em;
+  height: 0.95em;
+  margin-left: 0.04em;
+  margin-right: -0.11em;
+  vertical-align: -0.12em;
+  border-radius: 2px;
+  background: var(--color-rosa);
+}
+.cover-caret--idle {
+  animation: caret-blink 1.05s steps(1) infinite;
+}
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+.cover-spin {
+  animation:
+    cover-bloom 1.6s var(--ease-pop) both,
+    cover-turn 60s linear 1.6s infinite;
+}
+@keyframes cover-bloom {
+  from {
+    transform: scale(0.2) rotate(-90deg);
+    opacity: 0;
+  }
+}
+@keyframes cover-turn {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cover-spin,
+  .cover-caret--idle {
+    animation: none;
+  }
+}
